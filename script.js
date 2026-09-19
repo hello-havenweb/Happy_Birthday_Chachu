@@ -1,4 +1,4 @@
-const PASSWORD = "birthday2026";
+const PASSWORD = "2001";
 
 const passwordPage = document.getElementById("password-page");
 const envelopePage = document.getElementById("envelope-page");
