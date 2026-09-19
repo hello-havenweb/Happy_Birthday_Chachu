@@ -2,171 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#1a0a0a">
-    
-    <!-- SEO & Sharing -->
-    <title>Happy Birthday Ahmad ❤️</title>
-    <meta name="description" content="A special birthday surprise for Ahmad Chachu ❤️">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Happy Birthday Ahmad ❤️">
-    <meta property="og:description" content="A special birthday surprise for Ahmad Chachu ❤️">
-    
-    <!-- Twitter -->
-    <meta property="twitter:title" content="Happy Birthday Ahmad ❤️">
-    <meta property="twitter:description" content="A special birthday surprise for Ahmad Chachu ❤️">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎂</text></svg>">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎂 Special Birthday Surprise</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <!-- Particles Background -->
-    <div class="particles-container" id="particles"></div>
-    
-    <!-- Music Control Button -->
-    <button class="music-toggle" id="musicToggle" aria-label="Toggle music">
-        <span class="music-icon">♫</span>
-        <span class="music-status">Music Off</span>
-    </button>
-    
-    <!-- Audio Element -->
-    <audio id="backgroundMusic" loop>
-        <source src="assets/birthday-music.mp3" type="audio/mpeg">
-    </audio>
-    
-    <!-- Progress Indicator -->
-    <div class="progress-indicator" id="progressIndicator"></div>
-    
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
-    
-    <!-- SCREEN 1: Mystery Intro -->
-    <section class="screen intro-screen active" id="screen1">
-        <div class="intro-content">
-            <p class="intro-text fade-in-up">Someone special has a surprise for you...</p>
-            <h1 class="intro-name fade-in-up delay-1">AHMAD ❤️</h1>
-            <button class="cta-button glow-pulse delay-2" id="openSurprise">
-                OPEN YOUR SURPRISE 🎁
-            </button>
+    <div id="password-page" class="page active">
+        <div class="password-container">
+            <h1>🎁 You Have a Surprise!</h1>
+            <p>Enter the secret code to unlock</p>
+            <input type="password" id="password-input" placeholder="Enter password" maxlength="20">
+            <button id="unlock-btn">Unlock 🔓</button>
+            <p id="password-error" class="error"></p>
         </div>
-        <div class="scroll-hint fade-in delay-3">
-            <span>↓</span>
-        </div>
-    </section>
-    
-    <!-- SCREEN 2: Birthday Reveal -->
-    <section class="screen reveal-screen" id="screen2">
-        <div class="reveal-content">
-            <div class="confetti-container" id="confetti1"></div>
-            <p class="reveal-pre-text">Happy Birthday</p>
-            <h1 class="reveal-name glowing-text">AHMAD ❤️</h1>
-            <p class="reveal-subtitle">To the most special Chachu</p>
-            <div class="light-rays"></div>
-        </div>
-    </section>
-    
-    <!-- SCREEN 3: Personal Message -->
-    <section class="screen message-screen" id="screen3">
-        <div class="container">
-            <div class="glass-card">
-                <h2 class="card-heading">Dear Chachu Ahmad ❤️</h2>
-                <div class="message-content" id="messageContent">
-                    <!-- Message will be typed here by JavaScript -->
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- SCREEN 4: Memory / Photo Section -->
-    <section class="screen photo-screen" id="screen4">
-        <div class="container">
-            <h2 class="section-heading">Beautiful Memories 📸</h2>
-            <div class="photo-gallery" id="photoGallery">
-                <!-- 
-                    CUSTOMIZATION: Replace these image URLs with real photos
-                    Recommended size: 800x600px or higher
-                -->
-                <div class="photo-item" data-index="0">
-                    <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&h=600&fit=crop" alt="Memory 1" loading="lazy">
-                </div>
-                <div class="photo-item" data-index="1">
-                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=600&fit=crop" alt="Memory 2" loading="lazy">
-                </div>
-                <div class="photo-item" data-index="2">
-                    <img src="https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=600&fit=crop" alt="Memory 3" loading="lazy">
-                </div>
-                <div class="photo-item" data-index="3">
-                    <img src="https://images.unsplash.com/photo-1533854775446-95c4609da544?w=800&h=600&fit=crop" alt="Memory 4" loading="lazy">
-                </div>
-                <div class="photo-item" data-index="4">
-                    <img src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=800&h=600&fit=crop" alt="Memory 5" loading="lazy">
-                </div>
-                <div class="photo-item" data-index="5">
-                    <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800&h=600&fit=crop" alt="Memory 6" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightboxClose">&times;</button>
-        <button class="lightbox-prev" id="lightboxPrev">‹</button>
-        <button class="lightbox-next" id="lightboxNext">›</button>
-        <img src="" alt="Full size image" id="lightboxImg">
     </div>
-    
-    <!-- SCREEN 5: Special Message -->
-    <section class="screen special-screen" id="screen5">
-        <div class="special-content">
-            <p class="special-line line-1">Some people are family...</p>
-            <p class="special-line line-2">...and some become a beautiful part of your life.</p>
-            <p class="special-line line-3">You're both. ❤️</p>
-            <p class="special-line line-4">Happy Birthday, Ahmad Chachu!</p>
-        </div>
-    </section>
-    
-    <!-- SCREEN 6: Final Surprise -->
-    <section class="screen final-screen" id="screen6">
-        <div class="final-content">
-            <div class="confetti-container" id="confetti2"></div>
-            
-            <!-- CSS Birthday Cake -->
-            <div class="birthday-cake">
-                <div class="cake-layer layer-3">
-                    <div class="candle">
-                        <div class="flame"></div>
-                    </div>
+
+    <div id="envelope-page" class="page">
+        <div class="envelope-wrapper">
+            <div class="envelope" id="envelope">
+                <div class="flap"></div>
+                <div class="body"></div>
+                <div class="letter" id="letter">
+                    <p>🎉 Click to Open! 🎉</p>
                 </div>
-                <div class="cake-layer layer-2"></div>
-                <div class="cake-layer layer-1"></div>
-                <div class="cake-plate"></div>
             </div>
-            
-            <p class="final-text text-1">One More Thing...</p>
-            <p class="final-text text-2">May Allah bless you with endless happiness,<br>good health, success and peace.</p>
-            <h2 class="final-heading">Happy Birthday Ahmad Chachu ❤️🎂</h2>
+            <p class="hint">Tap the envelope!</p>
         </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer class="footer">
-        <p>Made with ❤️ for Ahmad Chachu</p>
-    </footer>
-    
-    <!-- JavaScript -->
-    <script src="js/script.js"></script>
-    
+    </div>
+
+    <div id="birthday-page" class="page">
+        <canvas id="confetti-canvas"></canvas>
+        
+        <div class="content">
+            <h1 class="birthday-title">🎂 Happy Birthday! 🎂</h1>
+            <p class="birthday-message">Wishing you the most amazing day filled with love and joy!</p>
+            
+            <div class="cake-container">
+                <div class="cake">
+                    <div class="candle"></div>
+                    <div class="candle"></div>
+                    <div class="candle"></div>
+                    <div class="flame"></div>
+                    <div class="flame"></div>
+                    <div class="flame"></div>
+                </div>
+            </div>
+
+            <div class="gifts">
+                <div class="gift" data-message="May all your dreams come true! ✨">
+                    <div class="gift-box">🎁</div>
+                </div>
+                <div class="gift" data-message="You deserve all the happiness! 💖">
+                    <div class="gift-box">🎁</div>
+                </div>
+                <div class="gift" data-message="Cheers to another amazing year! 🥳">
+                    <div class="gift-box">🎁</div>
+                </div>
+            </div>
+
+            <div id="gift-message" class="gift-message"></div>
+
+            <div class="music-player">
+                <button id="music-toggle">🎵 Play Music</button>
+                <audio id="birthday-song" loop>
+                    <source src="assets/happy-birthday.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+
+            <button id="replay-btn" class="replay-btn">🔄 Replay Animation</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
