@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.page.active {
+    display: flex;
+}
+
+.password-container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    max-width: 400px;
+    width: 100%;
+}
+
+.password-container h1 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.password-container p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+#password-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: border 0.3s;
+}
+
+#password-input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+#unlock-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#unlock-btn:active {
+    transform: scale(0.95);
+}
+
+.error {
+    color: #e74c3c;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.envelope-wrapper {
+    text-align: center;
+}
+
+.envelope {
+    position: relative;
+    width: 280px;
+    height: 180px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.envelope:hover {
+    transform: scale(1.05);
+}
+
+.envelope .body {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-bottom: 100px solid #f4a460;
+    z-index: 2;
+}
+
+.envelope .flap {
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-top: 100px solid #d2691e;
+    transform-origin: top;
+    transition: transform 0.6s;
+    z-index: 3;
+}
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+}
+
+.letter {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 240px;
+    height: 160px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #667eea;
+    font-weight: bold;
+    transition: transform 0.6s, top 0.6s;
+    z-index: 1;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.envelope.open .letter {
+    top: -120px;
+    transform: scale(1.1);
+}
+
+.hint {
+    margin-top: 120px;
+    color: white;
+    font-size: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.content {
+    text-align: center;
+    z-index: 1;
+    max-width: 600px;
+    width: 100%;
+}
+
+.birthday-title {
+    font-size: 48px;
+    color: white;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+}
+
+.birthday-message {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 30px;
+    animation: fadeIn 1.5s;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.cake-container {
+    margin: 40px 0;
+    animation: fadeIn 2s;
+}
+
+.cake {
+    position: relative;
+    width: 200px;
+    height: 180px;
+    margin: 0 auto;
+}
+
+.cake::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 120px;
+    background: linear-gradient(to bottom, #ff69b4, #ff1493);
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.candle {
+    position: absolute;
+    width: 8px;
+    height: 40px;
+    background: #fff;
+    top: 20px;
+    border-radius: 4px;
+}
+
+.candle:nth-child(1) { left: 70px; }
+.candle:nth-child(2) { left: 96px; }
+.candle:nth-child(3) { left: 122px; }
+
+.flame {
+    position: absolute;
+    width: 12px;
+    height: 18px;
+    background: #ff6b35;
+    top: 8px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: flicker 0.3s infinite alternate;
+}
+
+.flame:nth-child(4) { left: 68px; }
+.flame:nth-child(5) { left: 94px; }
+.flame:nth-child(6) { left: 120px; }
+
+@keyframes flicker {
+    0% { transform: scale(1) translateY(0); }
+    100% { transform: scale(1.1) translateY(-2px); }
+}
+
+.gifts {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.gift {
+    cursor: pointer;
+    transition: transform 0.3s;
+    animation: fadeIn 2.5s;
+}
+
+.gift:hover {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.gift-box {
+    font-size: 60px;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+}
+
+.gift-message {
+    min-height: 30px;
+    color: white;
+    font-size: 22px;
+    margin: 20px 0;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.music-player {
+    margin: 30px 0;
+    animation: fadeIn 3s;
+}
+
+#music-toggle {
+    padding: 15px 30px;
+    font-size: 18px;
+    background: white;
+    color: #667eea;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+#music-toggle:active {
+    transform: scale(0.95);
+}
+
+.replay-btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 16px;
+    background: rgba(255,255,255,0.3);
+    color: white;
+    border: 2px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.replay-btn:hover {
+    background: white;
+    color: #667eea;
+}
+
+@media (max-width: 600px) {
+    .birthday-title {
+        font-size: 36px;
+    }
+    
+    .birthday-message {
+        font-size: 16px;
+    }
+    
+    .password-container {
+        padding: 30px 20px;
+    }
+    
+    .envelope {
+        transform: scale(0.8);
+    }
+    
+    .gift-box {
+        font-size: 50px;
+    }
+  }
